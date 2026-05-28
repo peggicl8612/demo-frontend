@@ -39,7 +39,17 @@
         "usernameRequired": "使用者帳號必填",
         "passwordRequired": "密碼必填",
         "confirmPasswordRequired": "確認密碼必填",
-        "emailRequired": "電子信箱必填"
+        "emailRequired": "電子信箱必填",
+        "verificationCode": "驗證碼",
+        "verificationCodePlaceholder": "請輸入驗證碼",
+        "sendVerificationCode": "發送驗證碼",
+        "verifyAndRegister": "驗證並註冊",
+        "secondsLater": "秒後重發",
+        "resendCode": "重發驗證碼",
+        "registrationSuccess": "註冊成功",
+        "verificationFailed": "驗證失敗",
+        "codeSendFailed": "發送驗證碼失敗",
+        "codeSent": "驗證碼已發送"
       }
     }
 }
