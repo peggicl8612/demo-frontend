@@ -1,0 +1,39 @@
+{
+    "components": {
+       "navbar": {
+        "home": "Home",
+        "about": "About",
+        "cats": "Cats",
+        "adopt": "Adopt",
+        "admin": "Admin",
+        "shop": "Shop",
+        "cart": "Cart",
+        "authorization": "Login & Register",
+        "member": "Member Area",
+        "logout": "Logout"
+       }
+    },
+    "authorization": {
+      "tabs": {
+        "login": "Login",
+        "register": "Register"  
+      },
+      "form": {
+        "username": "Username",
+        "usernamePlaceholder": "Please enter your username",
+        "password": "Password",
+        "passwordPlaceholder": "Please enter your password",
+        "confirmPassword": "Confirm Password",
+        "confirmPasswordPlaceholder": "Please enter your password again",
+        "email": "Email",
+        "emailPlaceholder": "Please enter your email",
+        "login": "Login",
+        "register": "Register",
+        "userConflict": "Username already exists",
+        "usernameRequired": "Username is required",
+        "passwordRequired": "Password is required",
+        "confirmPasswordRequired": "Confirm password is required",
+        "emailRequired": "Email is required"
+      }
+    }
+}

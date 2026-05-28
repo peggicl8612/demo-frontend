@@ -1,0 +1,39 @@
+ {
+    "components": {
+       "navbar": {
+        "home": "ホーム",
+        "about": "紹介",
+        "cats": "猫専門エリア",
+        "adopt": "養殖申請",
+        "admin": "管理",
+        "shop": "ショッピング",
+        "cart": "カート",
+        "authorization": "ログイン&登録",
+        "member": "メンバーエリア",
+        "logout": "ログアウト"
+       }
+    },
+    "authorization": {
+      "tabs": {
+        "login": "ログイン",
+        "register": "登録"
+      },
+      "form": {
+        "username": "ユーザー名",
+        "usernamePlaceholder": "ユーザー名を入力してください",
+        "password": "パスワード",
+        "passwordPlaceholder": "パスワードを入力してください",
+        "confirmPassword": "確認パスワード",
+        "confirmPasswordPlaceholder": "パスワードを再入力してください",
+        "email": "メールアドレス",
+        "emailPlaceholder": "メールアドレスを入力してください",
+        "login": "ログイン",
+        "register": "登録",
+        "userConflict": "ユーザー名はすでに存在します",
+        "usernameRequired": "ユーザー名は必須です",
+        "passwordRequired": "パスワードは必須です",
+        "confirmPasswordRequired": "確認パスワードは必須です",
+        "emailRequired": "メールアドレスは必須です"
+    }
+  }
+}

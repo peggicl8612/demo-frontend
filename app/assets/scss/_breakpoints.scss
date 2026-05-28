@@ -1,0 +1,36 @@
+@use "sass:map";
+@use "sass:math";
+
+/* Breakpoints Variables Override */
+$breakpoint-xs: 576px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1440px;
+
+$sizes: (
+  "xs": 0,
+  "sm": $breakpoint-xs + 1,
+  "md": $breakpoint-sm + 1,
+  "lg": $breakpoint-lg + 1,
+  "xl": $breakpoint-lg + 1
+);
+
+$breakpoint-xs-min: map.get($sizes, "xs");
+$breakpoint-xs-max: (map.get($sizes, "sm") - 0.02);
+$breakpoint-sm-max: (map.get($sizes, "md") - 0.02);
+$breakpoint-md-min: map.get($sizes, "md");
+$breakpoint-md-max: (map.get($sizes, "lg") - 0.02);
+$breakpoint-lg-min: map.get($sizes, "lg");
+$breakpoint-lg-max: (map.get($sizes, "xl") - 0.02);
+$breakpoint-xl-min: map.get($sizes, "xl");
+// 補上 xl-max 避免 xl-down-width 報錯 (假設一個極大值)
+$breakpoint-xl-max: 9999px; 
+
+/* Breakpoints Mixins */
+@mixin xl-width { @media all and (min-width: $breakpoint-xl-min) { @content; } }
+@mixin xl-down-width { @media all and (max-width: $breakpoint-xl-max) { @content; } }
+@mixin lg-width { @media all and (max-width: $breakpoint-lg-max) { @content; } }
+@mixin md-width { @media all and (max-width: $breakpoint-md-max) { @content; } }
+@mixin sm-width { @media all and (max-width: $breakpoint-sm-max) { @content; } }
+@mixin xs-width { @media all and (max-width: $breakpoint-xs-max) { @content; } }
