@@ -49,7 +49,10 @@
         "registrationSuccess": "註冊成功",
         "verificationFailed": "驗證失敗",
         "codeSendFailed": "發送驗證碼失敗",
-        "codeSent": "驗證碼已發送"
+        "codeSent": "驗證碼已發送",
+        "usernameConflict": "帳號已存在",
+        "emailConflict": "電子信箱已存在",
+        "usernameTooShort": "帳號至少需要5個字元"
       }
     }
 }

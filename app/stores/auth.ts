@@ -7,6 +7,34 @@ export enum UserRole {
 }
 
 export const useAuthStore = defineStore('auth', () => {
+
+  const config = useRuntimeConfig();
+
+const fetchMe = async () => {
+  if (!token.value) {
+    user.value = null;
+    return null;
+  }
+  const me = await $fetch<{
+    id: string;
+    username: string;
+    email: string;
+    role: UserRole;
+  }>(`${config.public.apiBase}/users/me`, {
+    headers: {
+      Authorization: `Bearer ${token.value}`,
+    },
+  });
+  user.value = {
+    id: me.id,
+    username: me.username,
+    email: me.email,
+    role: me.role as UserRole,
+  };
+  return user.value;
+};
+
+  
   // 使用 useCookie 儲存 token，這樣重整網頁時狀態不會消失
   const token = useCookie<string | null>('auth_token', {
     default: () => null,
@@ -39,6 +67,7 @@ export const useAuthStore = defineStore('auth', () => {
     user,
     isLoggedIn,
     login,
-    logout
+    logout,
+    fetchMe
   }
 })

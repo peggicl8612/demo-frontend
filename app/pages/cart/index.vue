@@ -1,6 +1,6 @@
 <script setup lang="ts">
-defineOptions({
-  name: "Cart",
+definePageMeta({
+  middleware: ["auth"],
 });
 </script>
 

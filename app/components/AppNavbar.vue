@@ -86,9 +86,9 @@ watch(
         <NuxtLink :to="$localePath('/shop')">{{
           $t("components.navbar.shop")
         }}</NuxtLink>
-        <NuxtLink :to="$localePath('/cart')">{{
-          $t("components.navbar.cart")
-        }}</NuxtLink>
+        <NuxtLink v-if="authStore.isLoggedIn" :to="$localePath('/cart')">
+          {{ $t("components.navbar.cart") }}</NuxtLink
+        >
         <template v-if="!authStore.isLoggedIn">
           <NuxtLink :to="$localePath('/authorization')">{{
             $t("components.navbar.authorization")
@@ -186,9 +186,12 @@ watch(
           <NuxtLink :to="$localePath('/shop')" @click="closeMenu">{{
             $t("components.navbar.shop")
           }}</NuxtLink>
-          <NuxtLink :to="$localePath('/cart')" @click="closeMenu">{{
-            $t("components.navbar.cart")
-          }}</NuxtLink>
+          <NuxtLink
+            v-if="authStore.isLoggedIn"
+            :to="$localePath('/cart')"
+            @click="closeMenu"
+            >{{ $t("components.navbar.cart") }}</NuxtLink
+          >
           <template v-if="!authStore.isLoggedIn">
             <NuxtLink :to="$localePath('/authorization')">{{
               $t("components.navbar.authorization")
