@@ -3,6 +3,7 @@ import { onMounted, onUnmounted, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import IconifyIconOnline from "./icon/iconifyIconOnline";
 import { useAuthStore, UserRole } from "@/stores/auth";
+import { useI18n } from "vue-i18n";
 
 defineOptions({
   name: "AppNavbar",

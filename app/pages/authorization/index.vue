@@ -100,7 +100,7 @@ const handleRegister = async () => {
   }
   try {
     // 呼叫 API 驗證並註冊 API
-    const response: LoginResponse = await $fetch(
+    const response = await $fetch<LoginResponse>(
       `${config.public.apiBase}/auth/verify`,
       {
         method: "POST",
