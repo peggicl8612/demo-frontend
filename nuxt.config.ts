@@ -1,5 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  vite: {
+    optimizeDeps: {
+      include: [
+        'dayjs',
+        'dayjs/plugin/*.js',
+      ],
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "~/assets/scss/breakpoints" as *;',
+        },
+      },
+    },
+  },
   compatibilityDate: '2026-04-13',
   devtools: { enabled: true },
   devServer: {
@@ -20,19 +35,10 @@ export default defineNuxtConfig({
       strategy: 'prefix_except_default',
     },
   ], '@nuxt/ui'],
-  runtimeConfig: { 
+  runtimeConfig: {
     public: {
-      apiBase: 'http://localhost:3001',
-      verificationCooldownSeconds: 60
-    }
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:3001',
+      verificationCooldownSeconds: 60,
+    },
   },
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@use "~/assets/scss/_breakpoints.scss" as *;',
-        }
-      }
-    }
-  }
 })

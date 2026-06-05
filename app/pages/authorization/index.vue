@@ -53,14 +53,17 @@ const handleSendCode = async () => {
 
   isSendingCode.value = true;
   try {
-    await $fetch(`${config.public.apiBase}/auth/send-code`, {
-      method: "POST",
-      body: { email },
-    });
+    const res = await $fetch<{ retryAfter?: number }>(
+      `${config.public.apiBase}/auth/send-code`,
+      {
+        method: "POST",
+        body: { email },
+      },
+    );
 
     ElMessage.success($t("authorization.form.codeSent"));
     isWaitingForCode.value = true;
-    startCountdown(COOLDOWN_SECONDS, email);
+    startCountdown(res.retryAfter ?? COOLDOWN_SECONDS, email);
   } catch (error: unknown) {
     const err = error as {
       statusCode?: number;
