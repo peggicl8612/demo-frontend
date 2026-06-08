@@ -378,21 +378,21 @@ watch(activeName, (tab) => {
   // 切換 tab 時清除 DB 快取，避免使用舊的驗證結果
   usernameCache.value = null;
   emailCache.value = null;
-  // 進入 isWaitingForCode 狀態 時不要清空 email資料
+
+  // 驗證碼步驟進行中：保留所有註冊欄位，避免切換頁籤後無法完成註冊
+  if (isWaitingForCode.value) {
+    if (tab === "register" && authForm.value.email) {
+      syncCooldownForEmail(authForm.value.email);
+    }
+    return;
+  }
 
   if (tab === "register") {
     authForm.value.username = "";
     authForm.value.password = "";
     authForm.value.confirmPassword = "";
-
-    // 只有在尚未進入驗證碼步驟時才清 email
-    if (!isWaitingForCode.value) {
-      authForm.value.email = "";
-    }
+    authForm.value.email = "";
     authForm.value.verificationCode = "";
-    if (authForm.value.email) {
-      syncCooldownForEmail(authForm.value.email);
-    }
   } else {
     authForm.value.username = "";
     authForm.value.password = "";
